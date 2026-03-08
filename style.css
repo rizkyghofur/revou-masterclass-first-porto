@@ -15,6 +15,18 @@
 }
 
 /* 
+   STEP 16: DARK MODE OVERRIDES
+   When the 'dark-mode' class is added to the body, 
+   we swap the values of our variables.
+*/
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-primary: #fdfdfd;
+    --text-secondary: #aaaaaa;
+    --border: #333333;
+}
+
+/* 
    STEP 9: RESET & BASE STYLES
    Removing browser defaults (margin/padding) ensures our 
    design looks consistent across all browsers.
@@ -66,12 +78,52 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 .role {
     font-size: 1.1rem;
     color: var(--text-secondary);
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin: 0;
+}
+
+/* 
+   STEP 15.1: FLOATING BUTTON STYLING
+   We use position: fixed to keep the button in the same spot
+   even when we scroll.
+*/
+.theme-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--text-primary); /* Swaps with theme */
+    border: 1px solid var(--border);
+    color: var(--bg-color); /* Swaps with theme */
+    padding: 0.6rem 1.2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 2rem; /* Rounded pull feel */
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+}
+
+.theme-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.theme-btn:active {
+    transform: translateY(0);
 }
 
 .social-links a {
